@@ -21,6 +21,9 @@ public class GreetSlashCommandTests
             Request = request;
             return Task.FromResult((TResponse)response);
         }
+
+        public IDisposable Subscribe<TNotification>(Func<TNotification, Task> handler) =>
+            throw new NotSupportedException("greet never listens for notifications");
     }
 
     [Fact]
